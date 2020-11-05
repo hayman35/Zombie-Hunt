@@ -4,22 +4,34 @@ using System.Collections;
 public class WeaponControl : MonoBehaviour {
 
 	//All the weapons in the inventory
-	public GameObject[] weapons;
 	public WeaponScript primaryWeapon;
     public WeaponScript secondaryWeapon;
 
-	//The position of the current weapon in the weapon array
-	public int cur = 0;
+    public WeaponScript selectedWeapon;
 
-	void Start () {
-		//Iterate through all weapons and disable all but the current one
-		for (int i=0;i<weapons.Length;i++) {
-			if (i == cur) {
-				weapons [i].SetActive (true);
-			} else {
-				weapons [i].SetActive (false);
-			}
+	public static WeaponControl instance;
+
+
+	private void Awake() 
+	{
+		if(instance == null)
+		{
+			instance = this;
 		}
+		else if(instance != null)
+		{
+			Destroy(this);
+		}
+	}
+
+	void Start () 
+	{
+		//At the start we enable the primary weapon and disable the secondary
+        primaryWeapon.ActivateWeapon(true);
+        secondaryWeapon.ActivateWeapon(false);
+        selectedWeapon = primaryWeapon;
+        primaryWeapon.manager = this;
+        secondaryWeapon.manager = this;
 	}
 	
 	// Update is called once per frame
@@ -31,24 +43,44 @@ public class WeaponControl : MonoBehaviour {
 	}
 
 	IEnumerator SwitchWeapon () {
+		
+		if(selectedWeapon == primaryWeapon)
+		{
 		//Play ther current weapon's Lower animation
-		weapons [cur].GetComponent<Animator> ().CrossFade ("Lower",0.15f);
-
+		primaryWeapon.GetComponent<Animator> ().CrossFade ("Lower",0.15f);
+		
 		//Give it time to finish
 		yield return new WaitForSeconds (0.5f);
 
-		//Disable the current weapon
-		weapons [cur].SetActive(false);
-
-		//Go to the next weapon in the array. If we reach the end of the array, go back to the start
-		cur++;
-		if (cur >= weapons.Length)
-			cur = 0;
-
-		//Activate the new current weapon
-		weapons [cur].SetActive(true);
+		primaryWeapon.ActivateWeapon(false);
+		secondaryWeapon.ActivateWeapon(true);
 
 		//Play ther current weapon's Raise animation
-		weapons [cur].GetComponent<Animator> ().CrossFade ("Raise",0f);
+		secondaryWeapon.GetComponent<Animator> ().CrossFade ("Raise",0f);
+
+		selectedWeapon = secondaryWeapon;
+		}
+		else if(selectedWeapon == secondaryWeapon)
+		{
+			//Play ther current weapon's Lower animation
+		secondaryWeapon.GetComponent<Animator> ().CrossFade ("Lower",0.15f);
+		
+		//Give it time to finish
+		yield return new WaitForSeconds (0.5f);
+
+		primaryWeapon.ActivateWeapon(true);
+		secondaryWeapon.ActivateWeapon(false);
+
+		//Play ther current weapon's Raise animation
+		primaryWeapon.GetComponent<Animator> ().CrossFade ("Raise",0f);
+
+		selectedWeapon = primaryWeapon;
+		}
+		
+	}
+
+	public void PickUpGun(WeaponControl gun)
+	{
+
 	}
 }

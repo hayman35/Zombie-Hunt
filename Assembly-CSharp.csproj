@@ -42,9 +42,10 @@
      <Compile Include="Assets\Scripts\Bullet\Bullet.cs" />
      <Compile Include="Assets\Scripts\Bullet\InterfaceManager.cs" />
      <Compile Include="Assets\Scripts\FPSController.cs" />
+     <Compile Include="Assets\Scripts\GunManager.cs" />
+     <Compile Include="Assets\Scripts\PickUp\GunPickUp.cs" />
      <Compile Include="Assets\Scripts\PickUp\ILootable.cs" />
      <Compile Include="Assets\Scripts\PickUp\PlayerCameraRaycasting.cs" />
-     <Compile Include="Assets\Scripts\PickUp\PlayerPickUp.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.9f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
@@ -228,6 +229,15 @@
     <Reference Include="UnityEditor">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.9f1/Editor/Data/Managed/UnityEditor.dll</HintPath>
     </Reference>
+    <Reference Include="Sirenix.OdinInspector.Attributes">
+        <HintPath>C:/Users/hayma/OneDrive - The University of Western Ontario/Documents/Game Projects/Zombie Hunt/Assets/Plugins/Sirenix/Assemblies/Sirenix.OdinInspector.Attributes.dll</HintPath>
+    </Reference>
+    <Reference Include="Sirenix.OdinInspector.Editor">
+        <HintPath>C:/Users/hayma/OneDrive - The University of Western Ontario/Documents/Game Projects/Zombie Hunt/Assets/Plugins/Sirenix/Assemblies/Sirenix.OdinInspector.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Sirenix.Serialization.Config">
+        <HintPath>C:/Users/hayma/OneDrive - The University of Western Ontario/Documents/Game Projects/Zombie Hunt/Assets/Plugins/Sirenix/Assemblies/Sirenix.Serialization.Config.dll</HintPath>
+    </Reference>
     <Reference Include="Sirenix.Serialization">
         <HintPath>C:/Users/hayma/OneDrive - The University of Western Ontario/Documents/Game Projects/Zombie Hunt/Assets/Plugins/Sirenix/Assemblies/Sirenix.Serialization.dll</HintPath>
     </Reference>
@@ -236,15 +246,6 @@
     </Reference>
     <Reference Include="Sirenix.Utilities.Editor">
         <HintPath>C:/Users/hayma/OneDrive - The University of Western Ontario/Documents/Game Projects/Zombie Hunt/Assets/Plugins/Sirenix/Assemblies/Sirenix.Utilities.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Sirenix.OdinInspector.Editor">
-        <HintPath>C:/Users/hayma/OneDrive - The University of Western Ontario/Documents/Game Projects/Zombie Hunt/Assets/Plugins/Sirenix/Assemblies/Sirenix.OdinInspector.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Sirenix.OdinInspector.Attributes">
-        <HintPath>C:/Users/hayma/OneDrive - The University of Western Ontario/Documents/Game Projects/Zombie Hunt/Assets/Plugins/Sirenix/Assemblies/Sirenix.OdinInspector.Attributes.dll</HintPath>
-    </Reference>
-    <Reference Include="Sirenix.Serialization.Config">
-        <HintPath>C:/Users/hayma/OneDrive - The University of Western Ontario/Documents/Game Projects/Zombie Hunt/Assets/Plugins/Sirenix/Assemblies/Sirenix.Serialization.Config.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.9f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>

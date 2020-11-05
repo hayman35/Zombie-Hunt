@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class WeaponScript : MonoBehaviour {
+public class WeaponScript : MonoBehaviour 
+{
 
 	Animator a;
 	CharacterController co;
@@ -54,6 +55,9 @@ public class WeaponScript : MonoBehaviour {
 
 	//Particles for muzzle flash
 	ParticleSystem[] ps;
+
+	[HideInInspector]
+    public WeaponControl manager;
 
 	// Use this for initialization
 	void Start () {
@@ -224,4 +228,10 @@ public class WeaponScript : MonoBehaviour {
 		else
 			a.SetLayerWeight (1, 0);
 	}
+
+	public void ActivateWeapon(bool activate)
+    {
+        StopAllCoroutines();
+        gameObject.SetActive(activate);
+    }
 }

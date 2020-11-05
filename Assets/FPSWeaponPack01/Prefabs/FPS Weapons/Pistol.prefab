@@ -10182,7 +10182,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4000010787654540
 Transform:
   m_ObjectHideFlags: 0
@@ -10222,6 +10222,7 @@ MonoBehaviour:
   casing: {fileID: 1000013106887604, guid: c31ddd8288132ec4a9e174ccc4aecf75, type: 3}
   casingSpawn: {fileID: 4000010385702476}
   casingForce: {x: 10, y: 5, z: 0}
+  manager: {fileID: 0}
 --- !u!95 &95000011111387250
 Animator:
   serializedVersion: 3
